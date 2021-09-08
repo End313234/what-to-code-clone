@@ -1,0 +1,72 @@
+@import "../../utils/variables";
+
+#HomePage {
+    > main {
+        margin-top: 2rem;
+        display: flex;
+        width: 100vw;
+
+        > * {
+            margin-left: 4rem;
+        }
+
+        > #content {
+            width: 50vw;
+            display: grid;
+            place-items: center;
+
+            > #buttons {
+                > button {
+                    padding: 10px;
+                    background: none;
+                    border: none;
+                    font-family: "Poppins";
+                    font-size: 1.1rem;
+                    padding: 10px 20px;
+                    border: .1rem solid $lightgray;
+                    cursor: pointer;
+                    transition: 200ms;
+
+                    &:hover {
+                        border-color: #6b6b6bdb;
+                    }
+                }
+
+                > #popular {
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;   
+                }
+
+                > #rising {
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                }
+
+                > .selected {
+                    background-color: $yellow;
+                }
+
+                > .disabled {
+                    background: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    #RandomPage > main > * {
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #HomePage > main {
+        flex-direction: column;
+
+        > #content {
+            width: 65vw;
+            margin-top: 2rem;
+        }
+    }
+}

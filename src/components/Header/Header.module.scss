@@ -1,0 +1,131 @@
+@import "../../utils/variables";
+
+// main
+#Header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4rem;
+    margin-top: 1rem;
+    align-items: center;
+
+    > h3 > a {
+        color: $title;
+        text-decoration: none;
+        font-family: "Fira Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+
+    > nav {
+        > ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+
+            > li {
+                > #random {
+                    color: $body;
+                    text-decoration: none;
+                    padding: 10px;
+                    font-family: "Poppins";
+                    border: 1px solid $lightgray;
+                    border-radius: 5px;
+                    transition: 200ms;
+
+                    &:hover {
+                        border-color: #6d6d6ddb;
+                    }
+                }
+
+                > #submit {
+                    color: $body;
+                    text-decoration: none;
+                    padding: 10px;
+                    font-family: "Poppins";
+                    border: none;
+                    background-color: $yellow;
+                    border-radius: 5px;
+                    transition: 200ms;
+
+                    &:hover {
+                        background-color: #fad400;
+                    }
+                }
+            }
+        }
+
+        > button {
+            display: none;
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+// modal
+.Modal {
+    width: 94vw;
+    height: 10rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    > #container {
+        display: flex;
+        flex-direction: column;
+        
+        > a {
+            color: $body;
+            text-decoration: none;
+            font-family: "Poppins";
+        }
+    }
+}
+
+// animations
+@keyframes modalAnimationIn {
+    0% {
+        bottom: -40vh;
+    }
+
+    100% {
+        bottom: 0vh;
+    }
+}
+
+@keyframes modalAnimationOut {
+    0% {
+        bottom: 0vh;
+    }
+
+    100% {
+        bottom: -40vh;
+    }
+}
+
+// responsive
+@media (max-width: 768px) {
+    #Header > nav > ul {
+        display: none;
+    }
+
+    #Header > nav > button {
+        display: flex;
+    }
+}
+
+@media (max-width: 450px) {
+    #Header {
+        margin: 0 2rem;
+    }
+    .Modal {
+        width: 90vw;
+    }
+}

@@ -1,0 +1,38 @@
+#RandomPage {
+    > main {
+        display: flex;
+        margin-top: 2rem;
+
+        > * {
+            margin-left: 4rem;
+        }
+
+        > #content {
+            width: 50vw;
+            display: grid;
+            place-items: center;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #RandomPage {
+        > main {
+            display: block;
+
+            > * {
+                margin-left: 4rem;
+            }
+
+            > #content {
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    #RandomPage > main > * {
+        margin-left: 2rem;
+    }
+}

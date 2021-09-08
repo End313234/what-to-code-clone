@@ -17,6 +17,11 @@
     "rules": {
         "quotes": "off",
         "arrow-body-style": "off",
-        "indent": "off"
+        "indent": "off",
+        "no-unused-vars": "warn",
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+        "class-methods-use-this": "off",
+        "brace-style": "off"
     }
 }
