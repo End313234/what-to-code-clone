@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { database } from "services/firebase";
-import Question from "types/Question";
 
 import validadeApiRequest from "utils/validateApiRequest";
 
@@ -24,18 +23,10 @@ const handler = async (
         });
     }
 
-    const questionsRef = await database.ref("questions").get();
-    const documents = questionsRef.toJSON();
-    const keys = Object.keys(documents as Object);
-    const randomKey = keys[Math.floor(Math.random() * keys.length)];
-    // @ts-ignore
-    const randomDocument: Question = documents[randomKey];
-    randomDocument.id = randomKey;
+    const questionsRef = await database.ref("questions").orderByValue("likes");
+    console.log(questionsRef);
 
-    return response.status(200).json({
-        code: "200",
-        data: randomDocument,
-    });
+    return response.status(200).json({});
 };
 
 export default handler;

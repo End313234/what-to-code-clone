@@ -9,17 +9,13 @@ import NavBar from "components/NavBar/NavBar";
 import styles from "./index.module.scss";
 
 interface HomePageProps {
-    response: Object;
+    response?: Object;
 }
 
 const HomePage: NextPage<HomePageProps> = ({ response }) => {
     const [selectedButton, setSelectedButton] = useState("popular");
     const [popularButtonClassName, setPopularButtonClassName] = useState(styles.selected);
     const [risingButtonClassName, setRisingButtonClassName] = useState(styles.disabled);
-
-    useEffect(() => {
-        console.log(response);
-    }, [response]);
 
     const handleButtonClick = (key: string) => {
         const keyForRisingButton = selectedButton === "popular" && key === "popular" ? styles.disabled : styles.selected;
@@ -59,7 +55,7 @@ const HomePage: NextPage<HomePageProps> = ({ response }) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const response = await axios({
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/questions/get/random`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/questions/get/orderby/cres`,
         headers: {
             Authorization: process.env.NEXT_PUBLIC_TOKEN,
         },
